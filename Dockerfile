@@ -4,7 +4,7 @@ FROM superherointj/archlinux-base-devel:latest as archlinux-esy
 ENV PATH=${PATH}:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
 
 ### Workaround for GCC10
-RUN printf '#!/bin/sh\neval /usr/bin/gcc -fcommon ''"$@"''' > /usr/local/bin/gcc
+COPY ./gcc /usr/local/bin/gcc
 RUN chmod +x /usr/local/bin/gcc
 
 ### Installing Esy
